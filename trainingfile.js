@@ -1,9 +1,23 @@
-function work(n){
-  var s = ""
-  for (var i=0; i<n; i++){
-    s += i + " "
-  }
-  return s
-}
+function Age(n, k){
+  let max = n
+  let min = 0
+  let center
 
-console.log(work(10))
+  // 年齢見つかってないフラグ
+  let flg = true
+
+  while (flg){
+    // 中央値を算出
+    center = min + ((max-min)/2)
+
+    if (k == center ){
+      flg = false
+    }else if (k < center){
+      max = Math.ceil(center)
+    }else{
+      min = Math.floor(center)
+    }
+  }
+  return center
+}
+console.log(Age(100, 20))
